@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/styles.css">
+  <title>All Flowers</title>
+</head>
+<body>
+  <h1>All Flowers</h1>
+  <ul>
+    <% flowers.forEach(flower => { %>
+      <li class="flower-cards">
+        <a href="/flowers/<%= flower._id %>"><%= flower.name %></a> - <%= flower.color %>
+        <form action="/flowers/<%= flower._id %>?_method=DELETE" method="POST" class="delete-form">
+          <button type="submit" class="delete-button">Delete</button>
+        </form>
+        <a href="/flowers/<%= flower._id %>/edit" class="edit-link edit-text">Edit</a>
+      </li>
+    <% }) %>
+  </ul>
+  <a href="/flowers/new" class="add-flower">Add a New Flower</a>
+</body>
+</html>

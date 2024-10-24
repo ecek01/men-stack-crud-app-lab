@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/styles.css">
+  <title>Edit Flower</title>
+</head>
+<body>
+  <h1>Edit Flower</h1>
+  <form action="/flowers/<%= flower._id %>?_method=PUT" method="POST">
+    <label for="name">Name:</label>
+    <input type="text" name="name" id="name" value="<%= flower.name %>" required>
+
+    <label for="color">Color:</label>
+    <input type="text" name="color" id="color" value="<%= flower.color %>" required>
+
+    <label for="description">Description:</label>
+    <textarea name="description" id="description"><%= flower.description %></textarea>
+
+    <label for="image">Image URL:</label>
+    <input type="text" name="image" id="image" value="<%= flower.image %>">
+
+    <button type="submit">Update Flower</button>
+  </form>
+  <a href="/flowers/<%= flower._id %>">Cancel</a>
+</body>
+</html>

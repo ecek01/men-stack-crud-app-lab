@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/styles.css">
+  <title><%= flower.name %></title>
+</head>
+<body>
+  <h1><%= flower.name %></h1>
+  <p>Color: <%= flower.color %></p>
+  <p>Description: <%= flower.description %></p>
+  <% if (flower.image) { %>
+    <img src="<%= flower.image %>" alt="<%= flower.name %>" class="flower-image">
+  <% } %>
+  <a href="/flowers/<%= flower._id %>/edit" class="edit-link edit-text">Edit Flower</a>
+  <form action="/flowers/<%= flower._id %>?_method=DELETE" method="POST" class="delete-form">
+    <button type="submit" class="delete-button">Delete</button>
+  </form>
+  <a href="/flowers">Back to All Flowers</a>
+</body>
+</html>
